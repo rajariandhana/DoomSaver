@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmgixvdbj24mp"]
+[gd_scene load_steps=4 format=3 uid="uid://dmgixvdbj24mp"]
 
 [ext_resource type="Script" uid="uid://xxril6ie7qm7" path="res://scenes/game.gd" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://3nmrxjysqkrt" path="res://scripts/character.gd" id="2_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://bkpja6t57mm0a" path="res://icon.svg" id="2_yqjtg"]
 
 [node name="Game" type="Node2D"]
@@ -8,24 +9,21 @@ script = ExtResource("1_uwrxv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Node2D" type="Node2D" parent="."]
-scale = Vector2(2.02621, 2.02621)
+[node name="Characters" type="Node2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="Node2D"]
+[node name="Character" type="Node2D" parent="Characters"]
+scale = Vector2(2.02621, 2.02621)
+script = ExtResource("2_lbhrr")
+
+[node name="ColorRect" type="ColorRect" parent="Characters/Character"]
 offset_left = -85.0
 offset_top = -76.0
 offset_right = 120.0
 offset_bottom = 157.0
+mouse_filter = 2
 color = Color(0.694118, 1, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Characters/Character"]
 texture = ExtResource("2_yqjtg")
 
-[node name="Label" type="Label" parent="Node2D"]
-offset_left = -70.0
-offset_top = 88.0
-offset_right = 99.0
-offset_bottom = 130.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "h3llo w0r1d"
+[node name="Node2D" type="Node2D" parent="Characters/Character"]
