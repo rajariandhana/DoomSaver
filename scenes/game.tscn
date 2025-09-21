@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmgixvdbj24mp"]
+[gd_scene load_steps=6 format=3 uid="uid://dmgixvdbj24mp"]
 
 [ext_resource type="Script" uid="uid://xxril6ie7qm7" path="res://scripts/game.gd" id="1_uwrxv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwrxv"]
+size = Vector2(1280, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqjtg"]
+size = Vector2(1280, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
+size = Vector2(20, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
+size = Vector2(20, 720)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uwrxv")
@@ -8,3 +20,30 @@ script = ExtResource("1_uwrxv")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="FloatersTree" type="Node2D" parent="."]
+
+[node name="Borders" type="Node2D" parent="."]
+position = Vector2(-1, 0)
+
+[node name="Bottom" type="StaticBody2D" parent="Borders"]
+position = Vector2(0, 350)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Bottom"]
+shape = SubResource("RectangleShape2D_uwrxv")
+
+[node name="Top" type="StaticBody2D" parent="Borders"]
+position = Vector2(0, -350)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Top"]
+shape = SubResource("RectangleShape2D_yqjtg")
+
+[node name="Left" type="StaticBody2D" parent="Borders"]
+position = Vector2(-630, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Left"]
+shape = SubResource("RectangleShape2D_lbhrr")
+
+[node name="Right" type="StaticBody2D" parent="Borders"]
+position = Vector2(630, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Right"]
+shape = SubResource("RectangleShape2D_lnu2h")

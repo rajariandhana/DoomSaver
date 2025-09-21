@@ -4,13 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://bkpja6t57mm0a" path="res://icon.svg" id="2_ao14j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbueq"]
-size = Vector2(205.803, 232.454)
+size = Vector2(127.331, 127.331)
 
-[node name="Floater" type="Area2D"]
+[node name="Floater" type="CharacterBody2D"]
 scale = Vector2(2.02621, 2.02621)
+collision_layer = 2
 script = ExtResource("1_bbueq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -102.655
 offset_top = -111.045
 offset_right = 102.345
@@ -22,5 +24,5 @@ color = Color(0.694118, 1, 0, 1)
 texture = ExtResource("2_ao14j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.740298, 5.18208)
+position = Vector2(-1.88268e-06, -2.82401e-06)
 shape = SubResource("RectangleShape2D_bbueq")
