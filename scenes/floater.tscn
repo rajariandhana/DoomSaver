@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2qvpsn1mycy1"]
+
+[ext_resource type="Script" uid="uid://dsqodhyrqgy0k" path="res://scripts/floater.gd" id="1_bbueq"]
+[ext_resource type="Texture2D" uid="uid://bkpja6t57mm0a" path="res://icon.svg" id="2_ao14j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbueq"]
+size = Vector2(205.803, 232.454)
+
+[node name="Floater" type="Area2D"]
+scale = Vector2(2.02621, 2.02621)
+script = ExtResource("1_bbueq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -102.655
+offset_top = -111.045
+offset_right = 102.345
+offset_bottom = 121.955
+mouse_filter = 2
+color = Color(0.694118, 1, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ao14j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.740298, 5.18208)
+shape = SubResource("RectangleShape2D_bbueq")
