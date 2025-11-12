@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2qvpsn1mycy1"]
+[gd_scene load_steps=5 format=3 uid="uid://c2qvpsn1mycy1"]
 
 [ext_resource type="Script" uid="uid://dsqodhyrqgy0k" path="res://scripts/floater.gd" id="1_bbueq"]
 [ext_resource type="Texture2D" uid="uid://bkpja6t57mm0a" path="res://icon.svg" id="2_ao14j"]
+[ext_resource type="FontFile" uid="uid://bcyl8lugvntx" path="res://fonts/ds_digital/DS-DIGI.TTF" id="3_ao14j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbueq"]
 size = Vector2(127.331, 127.331)
@@ -11,17 +12,58 @@ scale = Vector2(2.02621, 2.02621)
 collision_layer = 2
 script = ExtResource("1_bbueq")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Border" type="ColorRect" parent="."]
 visible = false
-offset_left = -102.655
-offset_top = -111.045
-offset_right = 102.345
-offset_bottom = 121.955
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.5
+offset_top = -116.5
+offset_right = 102.5
+offset_bottom = 116.5
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
-color = Color(0.694118, 1, 0, 1)
+color = Color(1, 0, 0, 1)
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -106.0
+offset_right = 94.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_ao14j")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -11.5
+offset_right = 55.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ao14j")
+theme_override_font_sizes/font_size = 60
+text = "12:34:56"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.88268e-06, -2.82401e-06)

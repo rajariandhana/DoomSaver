@@ -10,7 +10,15 @@ var floaters_list: Array = []
 @onready var border_right: StaticBody2D = $Borders/Right
 
 var screen_size
-var thickness = 10
+var thickness:int = 10
+
+var words: Array = [
+	"GET BACK TO WORK!",
+	"u are worthless",
+	"u are fucking useless",
+	"you are a disapointment",
+	"nobody loves u",
+]
 
 func _ready():
 	for child in floaters_tree.get_children():
@@ -22,14 +30,14 @@ func _ready():
 	setup_borders()
 	
 	var ctr = randi_range(3, 10)
-	for i in ctr:
+	for word in words:
 		var pos_x = randf_range(-300, 300)
 		var pos_y = randf_range(-300, 300)
 		var dir_x = randf_range(-1, 1)
 		var dir_y = randf_range(-1, 1)
 		var speed = randf_range(700,1000)
 		#spawn_floater(Vector2(x,y),Vector2(0,1),speed)
-		spawn_floater(Vector2(pos_x, pos_y),Vector2(dir_x, dir_y),speed)
+		spawn_floater(Vector2(pos_x, pos_y),Vector2(dir_x, dir_y),speed, word)
 
 #func _process(_delta):
 	#pass
@@ -55,8 +63,8 @@ func setup_screen():
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_ALWAYS_ON_TOP, true)
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_MOUSE_PASSTHROUGH, true)
 	
-func spawn_floater(position: Vector2, direction: Vector2, speed: float):
+func spawn_floater(position: Vector2, direction: Vector2, speed: float, text: String):
 	var floater = floater_scene.instantiate()
 	floaters_list.append(floater)
 	floaters_tree.add_child(floater)
-	floater.set_params(position, direction,speed)
+	floater.set_params(position, direction,speed, text)
